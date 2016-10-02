@@ -1,0 +1,237 @@
+@import models._ 
+@import controllers._ 
+@import play.api.i18n._ 
+@import play.api.mvc._ 
+@import play.api.data._ 
+@import views.html._ 
+@import play.api.templates._ 
+@import play.api.templates.PlayMagic._ 
+@import play.api.libs.json.JsValue 
+@(profile: JsValue)
+
+@dashboardNav(profile) {
+<div id="page-wrapper">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEnabled" aria-expanded="true" aria-controls="collapseEnabled">
+          Enabled Integrations
+          </a>
+                </h4>
+            </div>
+            <div id="collapseEnabled" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">News</div>
+                                <div class="panel-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Full Story</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">News</div>
+                                <div class="panel-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Full Story</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">News</div>
+                                <div class="panel-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Full Story</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">News</div>
+                                <div class="panel-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Full Story</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+            </div>
+        </div>
+        <!-- available integrations -->
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAvailable" aria-expanded="true" aria-controls="collapseAvailable">
+          Available Integrations
+          </a>
+                </h4>
+            </div>
+            <div id="collapseAvailable" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    <!-- row 1 -->
+                    <div class="row">
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Google Cloud</div>
+                                <div class="panel-body">
+                                    <img alt="" src="@routes.Assets.versioned("images/google_cloud_platform.png")" height="150" width="128">
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Enable</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">AWS</div>
+                                <div class="panel-body">
+                                     <img alt="" src="@routes.Assets.versioned("images/amazon_web_services.png")" height="150" width="128">
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Enable</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Azure</div>
+                                <div class="panel-body">
+                                    <img alt="" src="@routes.Assets.versioned("images/azure.png")" height="150" width="128">
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Enable</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">vsphere</div>
+                                <div class="panel-body">
+                                    <img alt="" src="@routes.Assets.versioned("images/vsphere.png")" height="150" width="128">
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Enable</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row  1-->
+                    <br />
+                    <!-- row 2 -->
+                    <div class="row">
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">VEXXHOST</div>
+                                <div class="panel-body">
+                                    <img alt="" src="@routes.Assets.versioned("images/vexxhost.png")" height="150" width="128">
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>SoftLayer</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">SoftLayer</div>
+                                <div class="panel-body">
+                                     <img alt="" src="@routes.Assets.versioned("images/softlayer.png")" height="150" width="128">
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Enable</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Scaleway</div>
+                                <div class="panel-body">
+                                    <img alt="" src="@routes.Assets.versioned("images/scaleway.svg")" height="150" width="128">
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Enable</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Rackspace</div>
+                                <div class="panel-body">
+                                    <img alt="" src="@routes.Assets.versioned("images/rackspace.gif")" height="150" width="128">
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Enable</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row  2-->
+                    <br />
+                    <!-- row 3 -->
+                    <div class="row">
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Profitbricks</div>
+                                <div class="panel-body">
+                                    <img alt="" src="@routes.Assets.versioned("images/profitbricks.png")" height="150" width="128">
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Enable</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Linode</div>
+                                <div class="panel-body">
+                                     <img alt="" src="@routes.Assets.versioned("images/linode.png")" height="150" width="128">
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Enable</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Joyent</div>
+                                <div class="panel-body">
+                                    <img alt="" src="@routes.Assets.versioned("images/joyent.svg")" height="150" width="128">
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Enable</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Rackspace</div>
+                                <div class="panel-body">
+                                    <img alt="" src="@routes.Assets.versioned("images/rackspace.gif")" height="150" width="128">
+                                </div>
+                                <div class="text-center">
+                                    <a href="#"><i class="fa fa-plus"></i>Enable</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row  2-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- .page-wrapper -->
+}
