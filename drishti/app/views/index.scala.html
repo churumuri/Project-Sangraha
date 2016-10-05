@@ -1,6 +1,6 @@
 @import helpers.Auth0Config
 
-@(config: Auth0Config)
+@(webJarAssets: WebJarAssets, config: Auth0Config)
 @scripts = {
 	<script src="https://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
 	<script>
@@ -12,7 +12,7 @@
 }
 
 
-@main("Sangraha Landing Page","home", scripts) {
+@main(webJarAssets, "Sangraha Landing Page","home", scripts) {
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">

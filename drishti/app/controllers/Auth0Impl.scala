@@ -12,7 +12,7 @@ import play.api.http.MimeTypes
 import play.api.libs.json.JsValue
 import play.api.libs.json.Json
 import play.api.libs.json.Json.toJsFieldJsValueWrapper
-import play.api.libs.ws.WS
+import play.api.libs.ws.WSClient
 import play.api.mvc.Action
 import play.api.mvc.Controller
 import javax.inject.Inject
@@ -20,7 +20,7 @@ import play.api.Logger
 import helpers.Secured
 import helpers.Auth0Config
 
-class Auth0Impl @Inject() (override val cache: CacheApi) extends Controller with Secured {
+class Auth0Impl @Inject() (override val cache: CacheApi, ws: WSClient) extends Controller with Secured {
 
   // callback route
   def callback(codeOpt: Option[String] = None) = Action.async {
@@ -49,7 +49,7 @@ class Auth0Impl @Inject() (override val cache: CacheApi) extends Controller with
   }
 
   def getToken(code: String): Future[(String, String)] = {
-    val tokenResponse = WS.url(String.format("https://%s/oauth/token", "sangraha.auth0.com"))(Play.current).
+    val tokenResponse = ws.url(String.format("https://%s/oauth/token", "sangraha.auth0.com")).
       withHeaders(HeaderNames.ACCEPT -> MimeTypes.JSON).
       post(
         Json.obj(
@@ -73,7 +73,7 @@ class Auth0Impl @Inject() (override val cache: CacheApi) extends Controller with
   }
 
   def getUser(accessToken: String): Future[JsValue] = {
-    val userResponse = WS.url(String.format("https://%s/userinfo", "sangraha.auth0.com"))(Play.current)
+    val userResponse = ws.url(String.format("https://%s/userinfo", "sangraha.auth0.com"))
       .withQueryString("access_token" -> accessToken)
       .get()
 
@@ -83,7 +83,7 @@ class Auth0Impl @Inject() (override val cache: CacheApi) extends Controller with
   def logout = AuthenticatedAction { request =>
     val idToken = request.session.get("idToken").get
     cache.remove(idToken + "profile")
-    val l = WS.url(String.format("https://%s/logout", "sangraha.auth0.com"))(Play.current)
+    val l = ws.url(String.format("https://%s/logout", "sangraha.auth0.com"))
       .withQueryString("client_id" -> (Auth0Config.get().clientId))
       .withQueryString("returnTo" -> "http://localhost:9000")
       .get()

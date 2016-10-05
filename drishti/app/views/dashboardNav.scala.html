@@ -8,7 +8,7 @@
 @import play.api.templates.PlayMagic._
 @import play.api.libs.json.JsValue
 
-@(profile: JsValue)(content: Html)
+@(webJarAssets: WebJarAssets, profile: JsValue)(content: Html)
 
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sangraha Dashboard</title>
 
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")"/>
+    <link rel="stylesheet" type="text/css" href="@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))"/>
     <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/font-awesome.min.css")" />
     <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/dashboard-local.css")"" />
 
@@ -45,12 +45,9 @@
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active"><a href="index.html"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <li class="active"><a href="dashboard"><i class="fa fa-tachometer"></i> Dashboard</a></li>
                     <li><a href="events"><i class="fa fa-newspaper-o"></i> Events</a></li>                    
-                    <li><a href="dashboards"><i class="fa fa-tachometer"></i> Dashboards</a></li>
                     <li><a href="infrastructure"><i class="fa fa-building"></i> Infrastructure</a></li>
-                    <li><a href="monitors"><i class="fa fa-desktop"></i> Monitors</a></li>
-                    <li><a href="metrics"><i class="fa fa-crosshairs"></i> Metrics</a></li>
                     <li><a href="integrations"><i class="fa fa-cogs"></i > Integrations</a></li>                    
                 </ul>
                 <ul class="nav navbar-nav navbar-right navbar-user">

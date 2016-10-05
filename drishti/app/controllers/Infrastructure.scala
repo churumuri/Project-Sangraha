@@ -1,4 +1,3 @@
-// controllers/User.scala
 package controllers
 
 import play.api._
@@ -15,11 +14,10 @@ import javax.inject.Inject
 import play.api.cache._
 import helpers.Secured
 
-class Dashboard @Inject() (val webJarAssets: WebJarAssets, override val cache: CacheApi) extends Controller with Secured {
-
+class Infrastructure @Inject() (val webJarAssets: WebJarAssets, override val cache: CacheApi) extends Controller with Secured {
   def index = AuthenticatedAction { request =>
     val idToken = request.session.get("idToken").get
     val profile = cache.get[JsValue](idToken + "profile").get
-    Ok(views.html.dashboard(webJarAssets, profile))
+    Ok(views.html.infrastructure(webJarAssets, profile))
   }
 }

@@ -8,9 +8,9 @@
 @import play.api.templates.PlayMagic._
 @import play.api.libs.json.JsValue
 
-@(profile: JsValue)
+@(webJarAssets: WebJarAssets, profile: JsValue)
 
-@dashboardNav(profile) {
+@dashboardNav(webJarAssets, profile) {
     
         <div id="page-wrapper">
             <div class="row">

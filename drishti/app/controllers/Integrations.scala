@@ -14,10 +14,10 @@ import javax.inject.Inject
 import play.api.cache._
 import helpers.Secured
 
-class Integrations @Inject() (override val cache: CacheApi) extends Controller with Secured {
+class Integrations @Inject() (val webJarAssets: WebJarAssets, override val cache: CacheApi) extends Controller with Secured {
   def index = AuthenticatedAction { request =>
     val idToken = request.session.get("idToken").get
     val profile = cache.get[JsValue](idToken + "profile").get
-    Ok(views.html.integrations(profile))
+    Ok(views.html.integrations(webJarAssets, profile))
   }
 }

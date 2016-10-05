@@ -1,4 +1,4 @@
-@(title: String, bodyClass : String = "", scripts : Html = play.twirl.api.Html(""))(content: Html)
+@(webJarAssets: WebJarAssets, title: String, bodyClass : String = "", scripts : Html = play.twirl.api.Html(""))(content: Html)
 
 <!DOCTYPE html>
 
@@ -18,7 +18,8 @@
         <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/font-awesome.min.css")">
         <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/animate.css")">
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Montserrat:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+        <!--link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")"-->
+        <link rel="stylesheet" href="@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))">
         <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/main.css")">
 
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">

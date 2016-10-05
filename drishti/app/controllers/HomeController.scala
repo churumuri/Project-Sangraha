@@ -4,13 +4,14 @@ import javax.inject._
 import play.api._
 import play.api.mvc._
 import helpers.Auth0Config
+import com.google.inject.Inject;
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
  * application's home page.
  */
-@Singleton
-class HomeController @Inject() extends Controller {
+
+class HomeController @Inject() (val webJarAssets: WebJarAssets) extends Controller {
 
   /**
    * Create an Action to render an HTML page with a welcome message.
@@ -19,7 +20,7 @@ class HomeController @Inject() extends Controller {
    * a path of `/`.
    */
   def index = Action {
-    Ok(views.html.index(Auth0Config.get()))
+    Ok(views.html.index(webJarAssets, Auth0Config.get()))
   }
 
 }
