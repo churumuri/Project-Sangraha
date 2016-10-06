@@ -11,7 +11,7 @@ import com.google.inject.Inject;
  * application's home page.
  */
 
-class HomeController @Inject() (val webJarAssets: WebJarAssets) extends Controller {
+class HomeController @Inject() (val webJarAssets: WebJarAssets, auth0config: Auth0Config) extends Controller {
 
   /**
    * Create an Action to render an HTML page with a welcome message.
@@ -20,7 +20,7 @@ class HomeController @Inject() (val webJarAssets: WebJarAssets) extends Controll
    * a path of `/`.
    */
   def index = Action {
-    Ok(views.html.index(webJarAssets, Auth0Config.get()))
+    Ok(views.html.index(webJarAssets, auth0config))
   }
 
 }

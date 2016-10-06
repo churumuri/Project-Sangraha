@@ -20,7 +20,7 @@ import play.api.Logger
 import helpers.Secured
 import helpers.Auth0Config
 
-class Auth0Impl @Inject() (override val cache: CacheApi, ws: WSClient) extends Controller with Secured {
+class Auth0Impl @Inject() (override val cache: CacheApi, ws: WSClient, auth0config: Auth0Config) extends Controller with Secured {
 
   // callback route
   def callback(codeOpt: Option[String] = None) = Action.async {
@@ -53,9 +53,9 @@ class Auth0Impl @Inject() (override val cache: CacheApi, ws: WSClient) extends C
       withHeaders(HeaderNames.ACCEPT -> MimeTypes.JSON).
       post(
         Json.obj(
-          "client_id" -> (Auth0Config.get().clientId),
-          "client_secret" -> "v77n6M_D8qhW4oRaV2eiL4XXr4V5_VJ19xUYen2IdYm7ktQsZ1USpa2ClzaaVs9r",
-          "redirect_uri" -> "http://localhost:9000/callback",
+          "client_id" -> auth0config.clientId,
+          "client_secret" -> auth0config.secret,
+          "redirect_uri" -> auth0config.callbackURL,
           "code" -> code,
           "grant_type" -> "authorization_code"
         )
@@ -84,7 +84,7 @@ class Auth0Impl @Inject() (override val cache: CacheApi, ws: WSClient) extends C
     val idToken = request.session.get("idToken").get
     cache.remove(idToken + "profile")
     val l = ws.url(String.format("https://%s/logout", "sangraha.auth0.com"))
-      .withQueryString("client_id" -> (Auth0Config.get().clientId))
+      .withQueryString("client_id" -> auth0config.clientId)
       .withQueryString("returnTo" -> "http://localhost:9000")
       .get()
 
