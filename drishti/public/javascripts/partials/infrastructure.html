@@ -1,0 +1,58 @@
+<div id="page-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-18 col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <img src="http://placehold.it/500x250/EEE">
+              <div class="caption">
+                <h4>Total (instances[cost])</h4>
+                <p>100</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <img src="http://placehold.it/500x250/EEE">
+              <div class="caption">
+                <h4>Mine (instances[cost])</h4>
+                <p>1000</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <img src="http://placehold.it/500x250/EEE">
+              <div class="caption">
+                <h4>Efficiency </h4>
+                <p>1000</p>
+            </div>
+          </div>
+        </div>
+
+
+        
+  </div><!--/row-->
+</div><!--/container -->
+   <table st-table="rowCollection" class="table table-striped">
+	<thead>
+	<tr>
+		<th>first name</th>
+		<th>last name</th>
+		<th>birth date</th>
+		<th>balance</th>
+		<th>email</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="row in rowCollection">
+		<td>{{row.firstName}}</td>
+		<td>{{row.lastName}}</td>
+		<td>{{row.birthDate}}</td>
+		<td>{{row.balance}}</td>
+		<td>{{row.email}}</td>
+	</tr>
+	</tbody>
+</table>
+</div> 

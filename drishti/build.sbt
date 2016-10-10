@@ -26,9 +26,14 @@ libraryDependencies ++= Seq(
   cache,
   ws,
    "org.webjars" %% "webjars-play" % "2.5.0",
-  "org.webjars" % "bootstrap" % "3.3.5",
   "org.webjars" % "angularjs" % "1.5.8",
+  "org.webjars" % "jquery" % "2.2.0",
   "org.webjars" % "requirejs" % "2.3.2",
+  "org.webjars" % "smart-table" % "2.1.3-1",
+  "org.webjars" % "d3js" % "3.5.17",
+  "org.webjars" % "nvd3" % "1.8.2",
+  "org.webjars" % "angular-nvd3" % "1.0.5",
+  "org.webjars" % "bootstrap" % "3.3.5" exclude("org.webjars", "jquery"),
   "org.scalatestplus.play" %% "scalatestplus-play" % "1.5.1" % Test
 )
 

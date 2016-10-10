@@ -12,26 +12,27 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<meta content="utf-8" http-equiv="encoding">
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sangraha Dashboard</title>
 
     <link rel="stylesheet" type="text/css" href="@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))"/>
+    
     <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/font-awesome.min.css")" />
     <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/dashboard-local.css")"" />
 
-    <!-- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> -->
-    <script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-1.11.0.min.js")"></script>
-    <script type="text/javascript" src="@routes.Assets.versioned("javascripts/bootstrap.min.js")"></script>
+    <!--script src="https://cdn.rawgit.com/esvit/ng-table/1.0.0/dist/ng-table.js"></script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/esvit/ng-table/1.0.0/dist/ng-table.min.css"-->
+    
 
-    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
-    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
-    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
 
-    <script data-main="@routes.Assets.versioned("javascripts/dashboard-main.js")" src="@routes.Assets.versioned("lib/requirejs/require.js")"></script>
+    <script data-main="@routes.Assets.versioned("javascripts/dashboard-main.js")" 
+                  src="@routes.Assets.versioned("lib/requirejs/require.js")"></script>
+
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("lib/nvd3/nv.d3.min.css")"/>
 </head>
 <body>
     <div id="wrapper">
@@ -47,10 +48,10 @@
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active"><a href="dashboard"><i class="fa fa-tachometer"></i> Dashboard</a></li>
-                    <li><a href="events"><i class="fa fa-newspaper-o"></i> Events</a></li>                    
-                    <li><a href="infrastructure"><i class="fa fa-building"></i> Infrastructure</a></li>
-                    <li><a href="integrations"><i class="fa fa-cogs"></i > Integrations</a></li>                    
+                    <li class="active"><a href="dashboard#/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+                    <li><a href="#/events"><i class="fa fa-newspaper-o"></i> Events</a></li>                    
+                    <li><a href="#/infrastructure"><i class="fa fa-building"></i> Infrastructure</a></li>
+                    <li><a href="#/integrations"><i class="fa fa-cogs"></i > Integrations</a></li>                    
                 </ul>
                 <ul class="nav navbar-nav navbar-right navbar-user">
                     <li class="dropdown messages-dropdown">
@@ -87,7 +88,10 @@
             </div>
         </nav>
 
-        @content
+        <div class="container" data-ng-cloak>
+            <div data-ng-view></div>
+        </div>
+        
 
 </body>
 </html>

@@ -1,0 +1,38 @@
+{
+	"availableIntegrations": [
+		[{
+			"name": "Azure",
+			"image": "assets/images/azure.png",
+			"link": "#enabledIntegration?provider=aws"
+		}, {
+			"name": "aws",
+			"image": "assets/images/google_cloud_platform.png",
+			"link": "#enabledIntegration?provider=aws"
+		}, {
+			"name": "aws",
+			"image": "assets/images/google_cloud_platform.png",
+			"link": "#enabledIntegration?provider=aws"
+		}, {
+			"name": "aws",
+			"image": "assets/images/google_cloud_platform.png",
+			"link": "#enabledIntegration?provider=aws"
+		}],
+		[{
+			"name": "aws",
+			"image": "assets/images/google_cloud_platform.png",
+			"link": "#enabledIntegration?provider=aws"
+		}, {
+			"name": "aws",
+			"image": "assets/images/google_cloud_platform.png",
+			"link": "#enabledIntegration?provider=aws"
+		}, {
+			"name": "aws",
+			"image": "assets/images/google_cloud_platform.png",
+			"link": "#enabledIntegration?provider=aws"
+		}, {
+			"name": "aws",
+			"image": "assets/images/google_cloud_platform.png",
+			"link": "#enabledIntegration?provider=aws"
+		}]
+	]
+}

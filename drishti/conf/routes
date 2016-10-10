@@ -8,8 +8,6 @@ GET     /                           controllers.HomeController.index
 GET     /callback                   controllers.Auth0Impl.callback(code: Option[String])
 GET     /logout                     controllers.Auth0Impl.logout
 GET     /dashboard                  controllers.Dashboard.index
-GET     /integrations               controllers.Integrations.index
-GET     /infrastructure             controllers.Infrastructure.index
 
 
 # Map static resources from the /public folder to the /assets URL path

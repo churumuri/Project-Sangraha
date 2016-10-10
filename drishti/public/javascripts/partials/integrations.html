@@ -1,0 +1,64 @@
+<div id="page-wrapper">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" 
+                                     data-parent="#accordion" 
+                                    href="#collapseEnabled" 
+                                    aria-expanded="true" aria-controls="collapseEnabled">
+                             {{enabledIntegationsTitle}}
+                   </a> 
+                </h4>
+            </div>
+            <div id="collapseEnabled" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body" >
+                    <div class="row" ng-repeat="integGroup in enabledIntegations">
+                        <div class="col-lg-3 text-center" ng-repeat="integ in integGroup">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">{{integ.name}}</div>
+                                <div class="panel-body">
+                                    <img alt="" src="{{integ.image}}" >
+                                </div>
+                                <div class="text-center">
+                                    <a href={{integ.link}}><i class="fa fa-plus"></i>Full Story</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- available integrations -->
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAvailable" aria-expanded="true" aria-controls="collapseAvailable">
+          Available Integrations
+          </a>
+                </h4>
+            </div>
+            <div id="collapseEnabled" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body" >
+                    <div class="row" ng-repeat="integGroup in availableIntegrations">
+                        <div class="col-lg-3 text-center" ng-repeat="integ in integGroup">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">{{integ.name}}</div>
+                                <div class="panel-body">
+                                    <img alt="" src="{{integ.image}}" >
+                                </div>
+                                <div class="text-center">
+                                    <a href={{integ.link}}><i class="fa fa-plus"></i>Full Story</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- .page-wrapper -->

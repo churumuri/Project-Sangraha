@@ -2,13 +2,13 @@
 
 @(webJarAssets: WebJarAssets, config: Auth0Config)
 @scripts = {
-	<script src="https://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
+	<script type="text/javascript" src="https://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
 	<script>
 	  var AUTH0_CLIENT_ID = '@config.clientId';
 	  var AUTH0_DOMAIN = '@config.domain';
 	  var AUTH0_CALLBACK_URL = '@config.callbackURL';
   </script>
-  <script src="@routes.Assets.versioned("javascripts/app.js")"></script>
+  <script type="text/javascript" src="@routes.Assets.versioned("javascripts/Authapp.js")"></script>
 }
 
 
