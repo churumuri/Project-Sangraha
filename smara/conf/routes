@@ -3,8 +3,17 @@
 # ~~~~
 
 # An example controller showing how to write asynchronous code
-GET     /supplier/:id                 controllers.SuppliersController.supplier(id : Long)
-POST    /supplier                    controllers.SuppliersController.insertSupplier
+GET     /cloudprovider/:key          controllers.CloudProvidersController.CloudProvider(key : String)
+GET     /cloudprovider               controllers.CloudProvidersController.CloudProviders
+POST    /cloudprovider               controllers.CloudProvidersController.insertCloudProvider
+
+GET     /cloudservice/:key          controllers.CloudServicesController.CloudService(key : String)
+GET     /cloudservice               controllers.CloudServicesController.CloudServices
+POST    /cloudservice               controllers.CloudServicesController.insertCloudService
+
+GET     /organization/:key          controllers.OrganizationController.Organization(key : String)
+GET     /organization               controllers.OrganizationController.Organizations
+POST    /organization               controllers.OrganizationController.insertOrganization
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

@@ -1,12 +1,15 @@
-import com.google.inject.name.Names
-import com.google.inject.{Provides, AbstractModule}
+//import com.google.inject.name.Names
+//import com.google.inject.{Provides, AbstractModule}
 import java.time.Clock
 
-import models.daos.{AbstractBaseDAO, BaseDAO}
-import models.entities.Supplier
-import models.persistence.SlickTables
-import models.persistence.SlickTables.SuppliersTable
+import javax.inject.{Inject, Provider, Singleton}
 
+import dao.{CloudProviderDao, CloudServiceDao}
+import implementation.slick.{CloudProviderDaoImpl, CloudServiceDaoImpl}
+import com.google.inject.AbstractModule
+import com.typesafe.config.Config
+import play.api.inject.ApplicationLifecycle
+import play.api.{Configuration, Environment}
 
 /**
  * This class is a Guice module that tells Guice how to bind several
@@ -18,18 +21,26 @@ import models.persistence.SlickTables.SuppliersTable
  * adding `play.modules.enabled` settings to the `application.conf`
  * configuration file.
  */
-class Module extends AbstractModule {
+class Module (environment: Environment,
+             configuration: Configuration) extends AbstractModule {
 
   override def configure() = {
     // Use the system clock as the default implementation of Clock
     bind(classOf[Clock]).toInstance(Clock.systemDefaultZone)
-  }
+    bind(classOf[Config]).toInstance(configuration.underlying)
+    bind(classOf[CloudProviderDao]).to(classOf[CloudProviderDaoImpl])
+    bind(classOf[CloudServiceDao]).to(classOf[CloudServiceDaoImpl])
+    bind(classOf[slick.jdbc.JdbcBackend.Database]).toProvider(classOf[DatabaseProvider])
 
-  @Provides
-  def provideSuppliersDAO : AbstractBaseDAO[SuppliersTable,Supplier] = new BaseDAO[SuppliersTable,Supplier]{
-    override protected val tableQ: dbConfig.driver.api.TableQuery[SuppliersTable] = SlickTables.suppliersTableQ
   }
+}
 
+@Singleton
+class DatabaseProvider @Inject() (config: Config) extends Provider[slick.jdbc.JdbcBackend.Database] {
+
+  private val db = slick.jdbc.JdbcBackend.Database.forConfig("smara.database", config)
+
+  override def get(): slick.jdbc.JdbcBackend.Database = db
 }
 
 

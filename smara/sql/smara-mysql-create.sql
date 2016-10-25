@@ -1,16 +1,16 @@
 CREATE TABLE `CloudProvider` (
-	`key` varchar(36) NOT NULL AUTO_INCREMENT UNIQUE,
+	`key` varchar(36) NOT NULL UNIQUE,
 	`name` varchar(128) NOT NULL,
 	`url` varchar(256) NOT NULL,
 	PRIMARY KEY (`key`)
 );
 
 CREATE TABLE `CloudService` (
-	`key` varchar(36) NOT NULL AUTO_INCREMENT UNIQUE,
+	`key` varchar(36) NOT NULL  UNIQUE,
 	`name` varchar(128) NOT NULL UNIQUE,
 	`url` varchar(256) NOT NULL UNIQUE,
 	`fk_CloudProvider` varchar(36) NOT NULL,
-	`status` bool(36) NOT NULL,
+	`status` bool NOT NULL,
 	PRIMARY KEY (`key`)
 );
 
@@ -24,7 +24,7 @@ CREATE TABLE `Organization` (
 
 CREATE TABLE `BusinessUnit` (
 	`key` varchar(36) NOT NULL,
-	`name` varchar(128) NOT NULL AUTO_INCREMENT,
+	`name` varchar(128) NOT NULL ,
 	`tags` TEXT,
 	`contact` varchar(256),
 	`fk_Organization` varchar(36) NOT NULL,
